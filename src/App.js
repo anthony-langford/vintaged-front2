@@ -7,10 +7,6 @@ import './App.css';
 
 class App extends Component {
 
-    componentWillReceiveProps(nextProps){
-        let temp = nextProps;
-    }
-
     render() {
         return (
             <div className="App">
