@@ -1,6 +1,6 @@
 import { combineReducers } from 'redux'
 import { reducer as formReducer } from 'redux-form'
-import {CHANGE, CHANGE_BACK} from './actionTypes';
+import {CHANGE, CHANGE_BACK, FETCH_VINTAGES} from './actionTypes';
 
 export const rootReducer = combineReducers({
     // ...your other reducers here
@@ -12,7 +12,7 @@ export const rootReducer = combineReducers({
 
 
 
-function baseReducer(state = {change: 'init'}, action)
+function baseReducer(state = {change: 'init', list: []}, action)
 {
     switch (action.type) {
         case CHANGE:
@@ -22,6 +22,10 @@ function baseReducer(state = {change: 'init'}, action)
         case CHANGE_BACK:
             return Object.assign({}, state, {
                 change: 'changed Back'
+            });
+        case FETCH_VINTAGES:
+            return Object.assign({}, state, {
+                list: action.list
             });
         default:
             return state
