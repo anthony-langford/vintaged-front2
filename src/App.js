@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux'
-import {change, changeBack} from './actions'
+import {change, changeBack} from './actions/actions'
 import logo from './logo.svg';
 import ContactPage from './components/FormContainer'
 import './App.css';

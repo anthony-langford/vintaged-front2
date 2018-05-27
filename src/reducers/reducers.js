@@ -1,6 +1,6 @@
 import { combineReducers } from 'redux'
 import { reducer as formReducer } from 'redux-form'
-import {CHANGE, CHANGE_BACK, FETCH_VINTAGES} from './actionTypes';
+import {CHANGE, CHANGE_BACK, FETCH_VINTAGES} from '../actionTypes';
 
 export const rootReducer = combineReducers({
     // ...your other reducers here

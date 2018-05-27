@@ -1,4 +1,4 @@
-import {CHANGE, CHANGE_BACK, FETCH_VINTAGES} from './actionTypes';
+import {CHANGE, CHANGE_BACK, FETCH_VINTAGES} from '../actionTypes';
 
 export const change = function change() {
     return {type: CHANGE}
