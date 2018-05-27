@@ -33,6 +33,13 @@
     ],
     "semi": [
       1
-    ]
+    ],
+    "comma-dangle": ["error", {
+      "arrays": "never",
+      "objects": "only-multiline",
+      "imports": "never",
+      "exports": "never",
+      "functions": "ignore"
+  }]
   }
 }
