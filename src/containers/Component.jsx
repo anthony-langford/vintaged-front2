@@ -1,8 +1,16 @@
-import React, {Component} from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 import logo from './logo.svg';
 import './App.css';
 
-class App extends Component {
+// import react router deps
+// import { Route, Redirect, Switch } from 'react-router-dom';
+// import { ConnectedRouter } from 'react-router-redux';
+// import { Provider } from 'react-redux';
+// import store, { history } from './store';
+// import routes from './routes';
+
+class App extends React.Component {
 
   render() {
     return (
