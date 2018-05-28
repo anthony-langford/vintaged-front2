@@ -1,5 +1,8 @@
 import {createStore, applyMiddleware, compose} from 'redux';
-import {routerMiddleware} from 'react-router-redux';
+// https://medium.com/@gethylgeorge/understanding-how-redux-thunk-works-72de3bdebc50
+// Infographic on redux thunk https://cdn-images-1.medium.com/max/1600/1*eByw4NguNH8nK0MA_Q5Fow.png
+import thunkMiddleware from 'redux-thunk';
+// import {routerMiddleware} from 'react-router-redux';
 // import {createBrowserHistory} from 'history';
 
 // Import the root reducer
@@ -22,7 +25,8 @@ const defaultState = {
 // Customize middleware depending on environment
 const environmentMiddleware = (process.env.NODE_ENV === 'development') ? (
   applyMiddleware(
-    // ...middleware
+    // ...middleware,
+    thunkMiddleware
   )
 ) : (
   applyMiddleware(
@@ -30,7 +34,7 @@ const environmentMiddleware = (process.env.NODE_ENV === 'development') ? (
   )
 );
 
-// TODO: aafter react router is implemented
+// TODO: after react router is implemented
 // Add the reducer to your store on the `router` key
 // Also apply our middleware for navigating
 /* eslint-disable no-underscore-dangle */
