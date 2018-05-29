@@ -24,6 +24,8 @@ class TestContainer extends React.Component {
     // Display loader
     // store.dispatch(commonActions.toggleLoader(true));
 
+    store.dispatch(commonActions.fetchWines());
+
     // Bind functions to global scope
     this.nextState = this.nextState.bind(this);
   }
@@ -40,7 +42,7 @@ class TestContainer extends React.Component {
 
   nextState(values) {
     this.setState({
-      testContainerState: 'state has been fucking changed.',
+      testContainerState: 'state has been changed 🔥',
     }, () => {
       store.dispatch(commonActions.testAction(true));
     });
