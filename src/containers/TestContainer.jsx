@@ -2,6 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import {Provider, connect} from 'react-redux';
 import {createStore, combineReducers} from 'redux';
+import { ThemeProvider } from 'emotion-theming';
+import '../styles/globalStyles';
 
 // Import helpers
 import store from '../store';
@@ -9,13 +11,36 @@ import {commonActions} from '../actions';
 
 // Import components
 import Button from '../components/Button';
+import Title from '../components/Title';
+import Background from '../components/Background';
+import CelestialObject from '../components/CelestialObject';
+
+
+
+// Define themes
+const dayTheme = {
+  skyColor: '#37d8e6',
+  celestialObjectColor: '#ffdd00',
+  celestialObjectBorderColor: '#f1c40f'
+};
+
+const nightTheme = {
+  skyColor: '#2c3e50',
+  celestialObjectColor: '#bdc3c7',
+  celestialObjectBorderColor: '#eaeff2'
+};
+
+
 
 class TestContainer extends React.Component {
   constructor(props) {
     super(props);
 
-    // initiate state for the container
+    // Set initial state for the container
     this.state = {
+      title: 'Vintaged',
+      isDay: true,
+      theme: dayTheme,
       'testContainerState': 'intialContainerStateValue',
     };
   }
@@ -28,6 +53,7 @@ class TestContainer extends React.Component {
 
     // Bind functions to global scope
     this.nextState = this.nextState.bind(this);
+    this.handleClick = this.handleClick.bind(this);
   }
 
   componentDidMount() {
@@ -48,18 +74,33 @@ class TestContainer extends React.Component {
     });
   }
 
+  handleClick() {
+    const isDay = this.state.isDay;
+    this.setState({
+      isDay: !isDay,
+      theme: isDay ? nightTheme : dayTheme,
+      title: isDay ? 'fuck yeah' : 'Vintaged',
+    });
+  }
+
   render() {
     return (
-      <div>
-        hi
-        <br />
-        <Button
-          type="button"
-          onClick={this.nextState}
-        >
-          hi
-        </Button>
-      </div>
+      <ThemeProvider theme={this.state.theme}>
+        <Background>
+          <div>
+            <Button
+              type="button"
+              onClick={this.nextState}
+            >
+            Click me to change the container state
+            </Button>
+          </div>
+          <Title>{this.state.title}</Title>
+          <CelestialObject
+            onClick={this.handleClick}>
+          </CelestialObject>
+        </Background>
+      </ThemeProvider>
     );
   }
 }
