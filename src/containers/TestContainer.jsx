@@ -1,9 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Provider, connect } from 'react-redux';
-import { createStore, combineReducers } from 'redux';
+import {Provider, connect} from 'react-redux';
+import {createStore, combineReducers} from 'redux';
 
-// import helpers
+// Import helpers
 import store from '../store';
 import {commonActions} from '../actions';
 
@@ -21,7 +21,7 @@ class TestContainer extends React.Component {
   }
 
   componentWillMount() {   
-    // Display loader
+    // Display loader before mount
     // store.dispatch(commonActions.toggleLoader(true));
 
     store.dispatch(commonActions.fetchWines());
@@ -31,12 +31,12 @@ class TestContainer extends React.Component {
   }
 
   componentDidMount() {
-    // Hide loader
+    // Hide loader on mount
     // store.dispatch(commonActions.toggleLoader(false));
   }
 
   componentWillUnmount() {
-    // display loader
+    // Display loader on unmount
     // store.dispatch(commonActions.toggleLoader(true));
   }
 
@@ -52,6 +52,7 @@ class TestContainer extends React.Component {
     return (
       <div>
         hi
+        <br />
         <Button
           type="button"
           onClick={this.nextState}
@@ -75,6 +76,7 @@ TestContainer.propTypes = {
   dispatch: PropTypes.func.isRequired,
 };
 
+// Set default value for prop if not required and not present
 TestContainer.defaultProps = {
   // examplePropThatIsAnObject: {},
 };
