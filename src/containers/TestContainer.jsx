@@ -68,7 +68,7 @@ class TestContainer extends React.Component {
     this.setState({
       isDay: !isDay,
       theme: isDay ? nightTheme : dayTheme,
-      title: isDay ? 'fuck yeah' : 'Vintaged',
+      title: isDay ? 'fuck yeah 🍾' : 'Vintaged',
     });
   }
 
