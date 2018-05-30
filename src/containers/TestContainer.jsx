@@ -10,7 +10,6 @@ import store from '../store';
 import {commonActions} from '../actions';
 
 // Import components
-import Button from '../components/Button';
 import Title from '../components/Title';
 import Background from '../components/Background';
 import CelestialObject from '../components/CelestialObject';
@@ -41,7 +40,6 @@ class TestContainer extends React.Component {
       title: 'Vintaged',
       isDay: true,
       theme: dayTheme,
-      'testContainerState': 'intialContainerStateValue',
     };
   }
 
@@ -52,7 +50,6 @@ class TestContainer extends React.Component {
     store.dispatch(commonActions.fetchWines());
 
     // Bind functions to global scope
-    this.nextState = this.nextState.bind(this);
     this.handleClick = this.handleClick.bind(this);
   }
 
@@ -64,14 +61,6 @@ class TestContainer extends React.Component {
   componentWillUnmount() {
     // Display loader on unmount
     // store.dispatch(commonActions.toggleLoader(true));
-  }
-
-  nextState(values) {
-    this.setState({
-      testContainerState: 'state has been changed 🔥',
-    }, () => {
-      store.dispatch(commonActions.testAction(true));
-    });
   }
 
   handleClick() {
@@ -87,14 +76,6 @@ class TestContainer extends React.Component {
     return (
       <ThemeProvider theme={this.state.theme}>
         <Background>
-          <div>
-            <Button
-              type="button"
-              onClick={this.nextState}
-            >
-            Click me to change the container state
-            </Button>
-          </div>
           <Title>{this.state.title}</Title>
           <CelestialObject
             onClick={this.handleClick}>
