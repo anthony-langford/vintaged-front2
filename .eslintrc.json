@@ -27,15 +27,8 @@
       "error",
       "unix"
     ],
-    "quotes": [
-      "error",
-      "single"
-    ],
-    "semi": [
-      1
-    ],
     "comma-dangle": ["error", {
-      "arrays": "never",
+      "arrays": "only-multiline",
       "objects": "only-multiline",
       "imports": "never",
       "exports": "never",
