@@ -75,6 +75,7 @@ class TestContainer extends React.Component {
   render() {
     return (
       <ThemeProvider theme={this.state.theme}>
+        {/* Add a wrapper */}
         <Background>
           <Title>{this.state.title}</Title>
           <CelestialObject
@@ -94,13 +95,13 @@ function mapStateToProps(state) {
 
 // Static type checking for props
 TestContainer.propTypes = {
-  // examplePropThatIsAnObject: PropTypes.objectOf(PropTypes.shape),
+  // optionalPropThatIsAnObject: PropTypes.objectOf(PropTypes.shape),
   dispatch: PropTypes.func.isRequired,
 };
 
 // Set default value for prop if not required and not present
 TestContainer.defaultProps = {
-  // examplePropThatIsAnObject: {},
+  // optionalPropThatIsAnObject: {},
 };
 
 export default connect(mapStateToProps)(TestContainer);
