@@ -1,22 +1,23 @@
 import React from 'react';
-import {render} from 'react-dom';
-import {Provider} from 'react-redux';
+import { render } from 'react-dom';
+import { Provider } from 'react-redux';
+import { Router, Link } from "@reach/router"
+
+// Import helpers
 import store from './store';
 
+// Import containers
 import TestContainer from './containers/TestContainer';
-
-// Import React Router dependencies
-// import { Route, Redirect, Switch } from 'react-router-dom';
-// import { ConnectedRouter } from 'react-router-redux';
-// import { Provider } from 'react-redux';
-// import { Auth, loadSvgs } from './helpers';
-// import routes from './routes';
 
 store.subscribe(() => {});
 
+let Home = () => <TestContainer />
+
 render(
   <Provider store={store}>
-    <TestContainer/>
+    <Router>
+      <Home path="/" />
+    </Router>
   </Provider>,
   document.getElementById('root')
 );
