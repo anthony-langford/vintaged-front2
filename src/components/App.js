@@ -20,4 +20,4 @@ const App = () =>
     </Router>
   </Provider>
 
-export default App;
+export default App
